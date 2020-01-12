@@ -20,15 +20,12 @@ if __name__ == '__main__':
     # message must be of type bytes, not str, so we convert
     message = sys.argv[1].encode()
 
-    # we are making a nonce here, but if we just omit this,
-    #  a random nonce will be created
-    nonce = nacl.utils.random(nacl.secret.SecretBox.NONCE_SIZE)
-
     # create a box from our key & encrypt the message
+    #  a random nonce is automatically generated
     box = nacl.secret.SecretBox(key)
-    encrypted = box.encrypt(message, nonce)
+    encrypted = box.encrypt(message)
 
-    print("Nonce: {}".format(nonce.hex()))
+    print("Nonce: {}".format(encrypted.nonce.hex()))
     print("Key: {}".format(key.hex()))
     print("Box: {}".format(b64encode(encrypted).decode("utf-8")))
     print()
