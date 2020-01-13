@@ -3,7 +3,7 @@
 # Hash a message
 #
 import sys
-import nacl.hash
+import hashlib
 
 
 if __name__ == '__main__':
@@ -14,9 +14,28 @@ if __name__ == '__main__':
 
     message = sys.argv[1].encode("utf-8")
 
-    # also supported:
-    #  - nacl.hash.sha512
-    #  - nacl.hash.blake2b
-    digest = nacl.hash.sha256(message)
+    # also supported (Python 3.7+):
+    #
+    # - sha224
+    # - md5
+    # - sha1
+    # - sha3_256
+    # - sha256
+    # - blake2b
+    # - sha3_384
+    # - blake2s
+    # - sha3_224
+    # - sha512
+    # - shake_128
+    # - sha3_512
+    # - sha384
+    # - shake_256
+    #
+    # or look at `hashlib.algorithms_available` to see exactly what
+    #  is supported by your version of Python
+    digest = hashlib.shake_256(message)
 
-    print("Hash: {}".format(digest.decode()))
+    # `hexdigest` only requires a parameter for `shake_128` and `shake_256`
+    hexdigest = digest.hexdigest(64)
+
+    print("Hash: {}".format(hexdigest))
