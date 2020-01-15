@@ -15,7 +15,13 @@ This is inspired by [aeden/pc4d-go](https://github.com/aeden/pc4d-go).
 
 ## Examples
 
-TODO: Add build/install instructions
+To run the examples...
+
+- Install Python 3, preferrably Python 3.7+.
+- Install libsodium. Your package manager can likely do this for you. For example, `brew install libsodium` or `apt install libsodium23`.
+- Run `pip install -r requirements.txt` from the project directory to install dependencies.
+
+You should now be able to run the examples, for example `python src/encrypt.py`.
 
 ### Confidentiality
 
