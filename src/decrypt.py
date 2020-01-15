@@ -3,8 +3,7 @@
 # Use symetric encryption to decrypt a value
 #
 import sys
-import nacl.secret
-import nacl.utils
+import libnacl.secret
 from base64 import b64decode
 
 
@@ -22,12 +21,21 @@ if __name__ == '__main__':
     encrypted = b64decode(sys.argv[2].encode())
 
     # pull the nonce out, it's the first chunk of the encrypted bytes
-    nonce = encrypted[:nacl.secret.SecretBox.NONCE_SIZE]
+    #  this is purely to print the nonce below
+    nonce = encrypted[:libnacl.crypto_secretbox_NONCEBYTES]
 
     # create a box from our key & decrypt the message
-    box = nacl.secret.SecretBox(key)
-    decrypted = box.decrypt(
-        encrypted[nacl.secret.SecretBox.NONCE_SIZE:], nonce)
+    box = libnacl.secret.SecretBox(key)
+
+    # the nonce is part of `encrypted`, it's the first
+    #   `libnacl.crypto_secretbox_NONCEBYTES bytes`.
+    #
+    # `box.decrypt` can be passed the nonce, but it's smart enough
+    #   to automaticaly pull the nonce out so we don't have to.
+    #
+    #  We could have done, `box.decrypt(encrypted, nonce)`
+    #   it would have the same result.
+    decrypted = box.decrypt(encrypted)
 
     print("Nonce: {}".format(nonce.hex()))
     print("Message: {}".format(decrypted.decode()))
