@@ -3,8 +3,7 @@
 # Use public key crypto to sign a message
 #
 import sys
-import libnacl
-import libnacl.utils
+import libnacl.sign
 from base64 import b64encode
 
 if __name__ == '__main__':

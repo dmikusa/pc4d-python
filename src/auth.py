@@ -3,7 +3,6 @@
 # Use symetric encryption to create a digest for a value
 #
 import sys
-import libnacl
 import libnacl.utils
 
 

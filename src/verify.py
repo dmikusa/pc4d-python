@@ -4,7 +4,6 @@
 #
 import sys
 import libnacl
-import libnacl.utils
 
 
 if __name__ == '__main__':

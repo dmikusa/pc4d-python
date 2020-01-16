@@ -3,8 +3,7 @@
 # Use public key encryption to encrypt a file
 #
 import sys
-import libnacl
-import libnacl.utils
+import libnacl.public
 from base64 import b64decode
 
 if __name__ == '__main__':

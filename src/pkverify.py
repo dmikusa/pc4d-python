@@ -3,8 +3,7 @@
 # Use public key crypto to verify a message
 #
 import sys
-import libnacl
-import libnacl.utils
+import libnacl.sign
 from base64 import b64decode
 
 if __name__ == '__main__':
