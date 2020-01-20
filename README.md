@@ -11,7 +11,14 @@ The primary purposes of cryptography are:
 
 The examples in this repository depend on the [libnacl: Python bindings to NaCl](https://libnacl.readthedocs.io/en/latest/) packages.
 
-This is inspired by [aeden/pc4d-go](https://github.com/aeden/pc4d-go) & [aeden/pc4d-ruby](https://github.com/aeden/pc4d-ruby).
+This is inspired by:
+
+- [aeden/pc4d-go](https://github.com/aeden/pc4d-go)
+- [aeden/pc4d-ruby](https://github.com/aeden/pc4d-ruby)
+
+See also:
+
+- [dmikusa/pc4d-java](https://github.com/dmikusa/pc4d-java)
 
 ## Examples
 
