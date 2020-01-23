@@ -19,6 +19,7 @@ This is inspired by:
 See also:
 
 - [dmikusa/pc4d-java](https://github.com/dmikusa/pc4d-java)
+- [dmikusa/pc4d-rust](https://github.com/dmikusa/pc4d-rust)
 
 ## Examples
 
